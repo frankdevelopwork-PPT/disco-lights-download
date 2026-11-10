@@ -249,8 +249,8 @@ footer p{display:flex;align-items:center;gap:10px}
       <p class="lede" data-t="heroLede"></p>
       <div class="cta">
         <a class="btn btn-main" id="mainBtn" href="#tai">
-          <span class="big" data-t="dlFor" data-os="auto"></span>
-          <span class="small" data-fileline="auto"></span>
+          <span class="big" data-t="dlFor" data-os="windows"></span>
+          <span class="small" data-fileline="windows"></span>
         </a>
         <a class="link" href="#tai" data-t="seeAll"></a>
       </div>
@@ -1691,7 +1691,8 @@ enterScene('sweep');
 
   /* Link tải */
   doc.querySelectorAll("[data-href]").forEach(function (el) { el.href = base + R.builds[el.dataset.href].file; });
-  doc.getElementById("mainBtn").href = base + R.builds[myOs].file;
+  // Nút chính luôn là bản Windows (ưu tiên Windows); thẻ của máy người xem vẫn được đánh dấu bên dưới
+  doc.getElementById("mainBtn").href = base + R.builds.windows.file;
   doc.getElementById("aptCmd").textContent = "sudo apt install ./" + R.builds.linux.file;
   var card = doc.querySelector('[data-card="' + myOs + '"]');
   if (card && !mobile) card.classList.add("mine");
